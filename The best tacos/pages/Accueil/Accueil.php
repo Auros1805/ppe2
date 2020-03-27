@@ -1,8 +1,19 @@
 <?php
+    
+?>
+<html lang="fr">
+	<head>
+	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/general.css" media="all"/>
+		<link rel="icon" type="image/png" href="images/icone.png"/>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+		<meta charset="utf-8" />
+		<title>The best Tacos</title>		
+	</head>
+	<body>
+            <div class="container">
+            </div>
+            
+        </body>
+</html>

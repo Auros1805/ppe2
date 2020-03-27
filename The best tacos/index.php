@@ -17,7 +17,7 @@
 		<link rel="icon" type="image/png" href="images/icone.png"/>
 
 		<meta charset="utf-8" />
-		<title>World Bounty Hunters Agency</title>		
+		<title>The best Tacos</title>		
 	</head>
 	<body>
 
