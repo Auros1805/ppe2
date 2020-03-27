@@ -43,18 +43,12 @@
 			{
 				case "connexion" : 
 
-					include_once("pages/connexion/ConnexionController.php");
+					include_once("pages/Accueil/AccueilController.php");
 
-					$instanceController = new ConnexionController();
+					$instanceController = new AccueilController();
 					$instanceController->includeView();
 
-					if(!empty($_POST['login']) && !empty($_POST['password'])) 
-					{
-						if ($instanceController->authenticate($_POST['login'], $_POST['password']))
-						{
-							$instanceController->redirectUser();
-						}
-					}
+					
 
 					break;
 
