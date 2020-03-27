@@ -8,7 +8,6 @@ CREATE TABLE Client
     prenom VARCHAR(64),
     adresse VARCHAR(64),
     PRIMARY KEY(idClient)
-    
 );
 
 CREATE TABLE Commande
@@ -40,8 +39,7 @@ CREATE TABLE Tacos_Commande
 CREATE TABLE Tacos
 (
     idTacos INT(11),
-    taille VARCHAR(64),
-    prixTacos float,
+    nomTacos VARCHAR(64),
     idTaille INT(11),
     PRIMARY KEY(idTacos)
 );
@@ -54,6 +52,7 @@ CREATE TABLE Taille
     PRIMARY KEY(idTaille)
 
 );
+
 CREATE TABLE Viande_Tacos
 (
     idTacos INT(11),
@@ -66,6 +65,7 @@ CREATE TABLE Viande
     nomViande VARCHAR(64),
     PRIMARY KEY(idViande)
 );
+
 CREATE TABLE Sauce_Tacos
 (
     idSauce INT(11),
@@ -79,4 +79,57 @@ CREATE TABLE Sauce
     PRIMARY KEY(idSauce)
 );
 
-ALTER TABLE Client
+ALTER TABLE Commande
+ADD CONSTRAINT Commande_idClient
+FOREIGN KEY (idClient)
+REFERENCES Client(idClient);
+
+
+ALTER TABLE Tacos 
+ADD CONSTRAINT Tacos_idTaille
+FOREIGN KEY (idTaille)
+REFERENCES Taille(idTaille);
+
+
+ALTER TABLE Boisson_Commande
+ADD CONSTRAINT Boisson_Commande_idBoisson
+FOREIGN KEY (idBoisson)
+REFERENCES Boisson(idBoisson);
+
+ALTER TABLE Boisson_Commande
+ADD CONSTRAINT Boisson_Commande_idCommande
+FOREIGN KEY (idCommande)
+REFERENCES Commande(idCommande);
+
+
+ALTER TABLE Tacos_Commande
+ADD CONSTRAINT Tacos_Commande_idTacos
+FOREIGN KEY (idTacos)
+REFERENCES Tacos(idTacos);
+
+ALTER TABLE Tacos_Commande
+ADD CONSTRAINT Tacos_Commande_idCommande
+FOREIGN KEY (idCommande)
+REFERENCES Commande(idCommande);
+
+
+ALTER TABLE Viande_Tacos
+ADD CONSTRAINT Viande_Tacos_idTacos
+FOREIGN KEY (idTacos)
+REFERENCES Tacos(idTacos);
+
+ALTER TABLE Viande_Tacos
+ADD CONSTRAINT Viande_Tacos_idViande
+FOREIGN KEY (idViande)
+REFERENCES Viande(idViande);
+
+
+ALTER TABLE Sauce_Tacos
+ADD CONSTRAINT Sauce_Tacos_idTacos
+FOREIGN KEY (idTacos)
+REFERENCES Tacos(idTacos);
+
+ALTER TABLE Sauce_Tacos
+ADD CONSTRAINT Sauce_Tacos_idSauce
+FOREIGN KEY (idSauce)
+REFERENCES Sauce(idSauce);
