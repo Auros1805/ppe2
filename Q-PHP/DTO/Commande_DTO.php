@@ -1,6 +1,6 @@
 <?php
 
-    class Commande
+    class Commande_DTO
     {
         private $idCommande;
         private $dateCommande ;

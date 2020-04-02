@@ -1,6 +1,6 @@
 <?php
 
-    class boisson
+    class Boisson_DTO
     {
         public getIdBoisson() {
             return idBoisson;

@@ -1,6 +1,6 @@
 <?php
 
-    class Client
+    class Client_DTO
     {
         private $idClient;
         private $nom ;
