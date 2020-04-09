@@ -79,6 +79,13 @@ CREATE TABLE Sauce
     PRIMARY KEY(idSauce)
 );
 
+CREATE TABLE Legume
+(
+    idLegume INT(11),
+    nomLegume VARCHAR(64),
+    PRIMARY KEY(idLegume)
+);
+
 ALTER TABLE Commande
 ADD CONSTRAINT Commande_idClient
 FOREIGN KEY (idClient)
@@ -133,3 +140,55 @@ ALTER TABLE Sauce_Tacos
 ADD CONSTRAINT Sauce_Tacos_idSauce
 FOREIGN KEY (idSauce)
 REFERENCES Sauce(idSauce);
+
+ALTER TABLE Tacos 
+ADD CONSTRAINT Tacos_idLegume
+FOREIGN KEY (idLegume)
+REFERENCES Legume(idLegume);
+
+INSERT INTO Client(idClient, nom, prenom, adresse) VALUES
+(1, "Pernot", "Jean-Pierre", "6 Rue de la Republique"),
+(2, "Zinedine", "Zidane", "17 Rue la Mote"),
+(3, "Michael", "Jordan", "23 Place de la Fontaine");
+
+INSERT INTO Commande(idCommande, dateCommande, prixCommande, idClient) VALUES
+(1, "2019-12-23", 10, 1),
+(2, "2019-11-12", 14, 1),
+(3, "2020-01-05", 10, 2),
+(4, "2019-10-02", 21, 3);
+
+INSERT INTO Boisson(idBoisson, nomBoisson) VALUES
+(1, "Coca-Cola"),
+(2, "Orangina"),
+(3, "Ice Tea"),
+(4, "Fanta");
+
+INSERT INTO Tacos(idTacos, nomTacos, idTaille) VALUES
+(1, "Tacos M Viande Kebab sauce Algeriène ", 1),
+(2, "Tacos L Viande Kebab, Steck sauce Samourai ", 2),
+(3, "Tacos L Viande Tendrs, Steck sauce Mayonnaise ", 2),
+(4, "Tacos XL Viande Kebab, Steck, Tensers sauce Ketchup ", 3);
+
+INSERT INTO Taille(idTaille, nomTaille, prixTaille) VALUES
+(1, " M ", 7),
+(2, "L", 10),
+(3, "XL", 14);
+
+INSERT INTO Viande(idViande, nomViande) VALUES
+(1, "Kebab"),
+(2, "Tenders"),
+(3, "Steck"),
+(4, "Merguez"),
+(5, "Cordon Bleu");
+
+INSERT INTO Sauce(idSauce, nomSauce) VALUES
+(1, "Ketchup"),
+(2, "Mayonnaise"),
+(3, "Samourai"),
+(4, "Algériène"),
+(5, "Barbecue");
+
+INSERT INTO Legume(idLegume, nomLegume) VALUES
+(1, "Salade"),
+(2, "Tomate"),
+(3, "Onion");
