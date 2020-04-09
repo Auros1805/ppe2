@@ -12,6 +12,9 @@
 		<title>The best Tacos</title>		
 	</head>
 	<body>
+            <div class="bandereau">
+                The Best Tacos
+            </div>
             <div class="container">
             </div>
             
