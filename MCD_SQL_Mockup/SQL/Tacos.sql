@@ -1,4 +1,8 @@
-CREATE DATABASE Tacos;
+DROP DATABASE IF EXISTS Tacos;
+
+CREATE DATABASE Tacos
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 USE Tacos;
 
 CREATE TABLE Client
@@ -79,6 +83,12 @@ CREATE TABLE Sauce
     PRIMARY KEY(idSauce)
 );
 
+CREATE TABLE Tacos_Legume
+(
+    idLegume INT(11),
+    idTacos INT(11),
+    PRIMARY KEY(idLegume, idTacos)
+);
 CREATE TABLE Legume
 (
     idLegume INT(11),
@@ -141,10 +151,16 @@ ADD CONSTRAINT Sauce_Tacos_idSauce
 FOREIGN KEY (idSauce)
 REFERENCES Sauce(idSauce);
 
-ALTER TABLE Tacos 
-ADD CONSTRAINT Tacos_idLegume
+
+ALTER TABLE Tacos_Legume 
+ADD CONSTRAINT Tacos_Legume_idLegume
 FOREIGN KEY (idLegume)
 REFERENCES Legume(idLegume);
+
+ALTER TABLE Tacos_Legume 
+ADD CONSTRAINT Tacos_Legume_idTacos
+FOREIGN KEY (idTacos)
+REFERENCES Tacos(idTacos);
 
 INSERT INTO Client(idClient, nom, prenom, adresse) VALUES
 (1, "Pernot", "Jean-Pierre", "6 Rue de la Republique"),
