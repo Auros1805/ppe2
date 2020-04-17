@@ -47,11 +47,35 @@
 
 					$instanceController = new AccueilController();
 					$instanceController->includeView();
-
-					
-
 					break;
+                                case "CommandeBoisson" : 
 
+					include_once("pages/CommandeBoisson/CommandeBoissonController.php");
+
+					$instanceController = new CommandeBoissonController();
+					$instanceController->includeView();
+					break;
+                                case "CommandeLivraison" : 
+
+					include_once("pages/CommandeLivraison/CommandeLivraisonController.php");
+
+					$instanceController = new CommandeLivraisonController();
+					$instanceController->includeView();
+					break;
+                                case "CommandeSauce" : 
+
+					include_once("pages/CommandeSauce/CommandeSauceController.php");
+
+					$instanceController = new CommandeSauceController();
+					$instanceController->includeView();
+					break;
+                                case "CommandeTacos" : 
+
+					include_once("pages/CommandeTacos/CommandeTacosController.php");
+
+					$instanceController = new CommandeTacosController();
+					$instanceController->includeView();
+					break;
 				default: 
 					break;
 			}
