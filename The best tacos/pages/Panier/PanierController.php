@@ -1,12 +1,16 @@
 <?php
-class AccueilController
+class PanierController
 {
     
     public function includeView()
     {
-        include("pages/Accueil/Accueil.php");
+        include("pages/Panier/Panier.php");
     }
-    
+    public function redirectUser($page)
+    {
+        header('Location: index.php?page='.$page);
+        exit();
+    }
     
 }
 ?>

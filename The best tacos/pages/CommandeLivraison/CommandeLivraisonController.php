@@ -1,12 +1,16 @@
 <?php
-class AccueilController
+class CommandeLivraisonController
 {
     
     public function includeView()
     {
-        include("pages/Accueil/Accueil.php");
+        include("pages/CommandeLivraison/CommandeLivraison.php");
     }
-    
+    public function redirectUser($page)
+    {
+        header('Location: index.php?page='.$page);
+        exit();
+    }
     
 }
 ?>

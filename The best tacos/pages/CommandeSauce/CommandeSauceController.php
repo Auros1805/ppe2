@@ -1,12 +1,20 @@
 <?php
-class AccueilController
+class CommandeSauceController
 {
     
     public function includeView()
     {
-        include("pages/Accueil/Accueil.php");
+        include("pages/CommandeSauce/CommandeSauce.php");
     }
-    
-    
+    public function redirectUser($page)
+    {
+        header('Location: index.php?page='.$page);
+        exit();
+    }
+    public function redirectUser($page)
+    {
+        header('Location: index.php?page='.$page);
+        exit();
+    }
 }
 ?>

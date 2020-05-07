@@ -7,8 +7,8 @@ body
 }
 .container
 {
-    width: 1000px;
-    height: 530px;
+    width: 60%;
+    height: 60%;
     background-color: #F5D19B;
     border-radius: 10px;
     position: absolute;

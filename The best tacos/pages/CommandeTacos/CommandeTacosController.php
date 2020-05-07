@@ -1,10 +1,10 @@
 <?php
-class AccueilController
+class CommandeTacosController
 {
     
     public function includeView()
     {
-        include("pages/Accueil/Accueil.php");
+        include("pages/CommandeTacos/CommandeTacos.php");
     }
     
     
