@@ -48,7 +48,7 @@
                             }
                             
                         ?>
-                        <a href="?page=Accueil" class="button">Précédent</a>
+                        <a href="?page=Panier" class="button">Panier</a>
                 </div>
                 <div class="btn">
                     <img class="img" src="https://o-tacos.com/assets/img/tacos/steps/Trois-Tacos-avion.jpg">
@@ -96,14 +96,11 @@
                             echo '
                                 <input type="checkbox" name="sauce[]" value="'.$listSauce[$i]->getIdSauce().'"><label>'.$listSauce[$i]->getNomSauce().'</label><br/>';
                         }
-                        echo '<input type="submit" name="submit" value="submit"/>
+                        echo '<input type="submit" class="button" name="Valider" value="Valider"/>
                                 </form>';
+                        echo '<form action="#" method="post"><button name="precedent" value="1" class="button">Précédent</button></form>';
                         
-                    echo '<form action="#" method="post"><button name="precedent" value="1" class="button">precedent</button></form>';
-                    if(isset($_POST['precedent']))
-                    {
-                        $_SESSION['choix'] = 0;
-                    }
+                    
                         
                         
                     if(!empty($_POST["viande"]))
@@ -121,10 +118,15 @@
                                 $_SESSION['listTacos'][0][] = $Tacos;
                                 $_SESSION['listTacos'][1][] = $_POST["viande"];
                                 $_SESSION['listTacos'][2][] = $_POST["sauce"];
-
-                                echo '<a href="?page=CommandeBoisson" class="button">suivant</a>';
+                                
+                                echo '<a href="?page=CommandeBoisson" class="button">Boisson</a>';
                             }
                         }
+                    }
+                    
+                    if(isset($_POST['precedent']))
+                    {
+                        $_SESSION['choix'] = 0;
                     }
                     ?>
                     </div>

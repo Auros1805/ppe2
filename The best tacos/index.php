@@ -28,10 +28,12 @@
         $TacosArray = array();
         $_SESSION['listTacos'][] = $TacosArray;
         $ViandeArray = array();
+        
         $_SESSION['listTacos'][] = $ViandeArray;
         $SauceArray = array();
-        $_SESSION['listTacos'][] = $SauceArray;
         
+        $_SESSION['listTacos'][] = $SauceArray;
+        $_SESSION['Boisson'];
 ?>
 
 

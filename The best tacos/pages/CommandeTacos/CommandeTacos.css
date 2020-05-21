@@ -22,7 +22,7 @@ body
 .container-2
 {
     width: 60%;
-    height: 60%;
+    min-height: 60%;
     background-color: #F5D19B;
     border-radius: 10px;
     position: absolute;
@@ -35,6 +35,7 @@ body
     display: flex;
     justify-content: space-around;
 }
+
 .bandereau{
     background-color: #FFF0CE;
     display: flex;
