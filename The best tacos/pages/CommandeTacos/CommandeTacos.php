@@ -14,8 +14,9 @@
             </div>
             <?php   echo $_SESSION['choix'];
                     
-                    print_r($_SESSION['Taille']);
+
             ?>
+        <?php if($_SESSION['choix'] == 0){ ?>
             <div class="container">
                 <div class="btn">
                         <p>choisissez la taille:</p>
@@ -53,21 +54,23 @@
                     <img class="img" src="https://o-tacos.com/assets/img/tacos/steps/Trois-Tacos-avion.jpg">
                 </div>
             </div>
+        <?php } ?>
+            
         <?php if($_SESSION['choix'] == 1){ ?>
             <div class="container-2">
-                <div class="btn-2">
-                    
+                    <div class="check">
                     <?php
 
-                        echo "<p>choisissez jusqu'à ".$_SESSION['Taille']." viande:</p>";
+                        
                         echo '<form action="#" method="post">';
+                        echo "<p>choisissez jusqu'à ".$_SESSION['Taille']." viande:</p>";
                         for($i = 0; $i< sizeof($listViande);$i++)
                         {
                             echo '<form action="#" method="post">
                                 <input type="checkbox" name="viande[]" value="'.$listViande[$i]->getIdViande().'"><label>'.$listViande[$i]->getNomViande().'</label><br/>';
                         }
-                        echo '<input type="submit" name="submit" value="submit"/>
-                                </form>';
+                        echo '
+                                ';
                     
                     if(!empty($_POST["viande"]))
                     {
@@ -77,9 +80,10 @@
                         }
                     }
                     
-                    
-                    
-                    
+                    ?>
+                    </div>
+                    <div class="check">
+                    <?php
                     $nbSauce = 1;
                         if($_SESSION['Taille'] > 1)
                         {
@@ -89,11 +93,19 @@
                         echo "<p>choisissez jusqu'à ".$nbSauce." sauce:</p>";
                         for($i = 0; $i< sizeof($listSauce);$i++)
                         {
-                            echo '<form action="#" method="post">
+                            echo '
                                 <input type="checkbox" name="sauce[]" value="'.$listSauce[$i]->getIdSauce().'"><label>'.$listSauce[$i]->getNomSauce().'</label><br/>';
                         }
                         echo '<input type="submit" name="submit" value="submit"/>
                                 </form>';
+                        
+                    echo '<form action="#" method="post"><button name="precedent" value="1" class="button">precedent</button></form>';
+                    if(isset($_POST['precedent']))
+                    {
+                        $_SESSION['choix'] = 0;
+                    }
+                        
+                        
                     if(!empty($_POST["viande"]))
                     {
                         if(!empty($_POST["sauce"]))
@@ -106,25 +118,16 @@
                             {
                                 $Tacos = new Tacos_DTO();
                                 $Tacos->setIdTaille($_SESSION['Taille']);
-                                $_SESSION['listTacos'][] = $Tacos;
-                                $_SESSION['listTacos'][][] = $_POST["viande"];
-                                $_SESSION['listTacos'][][][] = $_POST["sauce"];
+                                $_SESSION['listTacos'][0][] = $Tacos;
+                                $_SESSION['listTacos'][1][] = $_POST["viande"];
+                                $_SESSION['listTacos'][2][] = $_POST["sauce"];
 
                                 echo '<a href="?page=CommandeBoisson" class="button">suivant</a>';
                             }
                         }
                     }
                     ?>
-                </div>
-                <div class="btn-2">
-                    
-                    <?php
-                    
-                    
-                        
-
-                    ?>
-                </div>
+                    </div>
             </div>
         <?php } ?>
             

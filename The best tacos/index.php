@@ -1,5 +1,12 @@
 <?php 
-
+        include_once('DTO/Tacos_DTO.php');
+        include_once('DTO/Taille_DTO.php');
+        include_once('DTO/Viande_DTO.php');
+        include_once('DTO/Sauce_DTO.php');
+        include_once('DTO/Boisson_DTO.php');
+        include_once('DTO/Client_DTO.php');
+        include_once('DTO/Commande_DTO.php');
+        
 	if (empty($_SESSION))
 	{
 		session_name("avis_recherche");
@@ -16,6 +23,15 @@
         {
                 $page = "Accueil";
         }
+        
+        
+        $TacosArray = array();
+        $_SESSION['listTacos'][] = $TacosArray;
+        $ViandeArray = array();
+        $_SESSION['listTacos'][] = $ViandeArray;
+        $SauceArray = array();
+        $_SESSION['listTacos'][] = $SauceArray;
+        
 ?>
 
 
@@ -34,10 +50,6 @@
                     include_once("DAO/Tacos_DAO.php");
                     
                     $_SESSION['listTaille'] = Tacos_DAO::allTaille();
-                    $listTacos = array();
-                    $listViande = array();
-                    $listSauce = array();
-                    $_SESSION['listTacos'] = $listTacos;
                     $listBoisson = array();
 			switch($page)
 			{

@@ -1,8 +1,13 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    include_once("tools/DatabaseLinker.php");
+    include_once("DTO/Tacos_DTO.php");
+    include_once("DTO/Taille_DTO.php");
+    include_once("DTO/Viande_DTO.php");
+    include_once("DTO/Sauce_DTO.php");
 
+    class Tacos_DAO
+    {
+        
+    }
+?>
