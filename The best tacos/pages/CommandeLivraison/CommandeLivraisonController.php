@@ -12,5 +12,13 @@ class CommandeLivraisonController
         exit();
     }
     
+    public static function Client($adresse, $nom, $prenom)
+    {
+        $client = new Client_DTO();
+        $client->setAdresse($adresse);
+        $client->setNom($nom);
+        $client->setPrenom($prenom);
+        Client_DAO::insertClient($client);
+    }
 }
 ?>

@@ -13,7 +13,13 @@
                     <p>Prénom :</p><input type="text" id="prenom" name="prenom" required minlength="4" maxlength="8" size="10">
                     <input type="submit" class="boutton" value="Valider" >
                 </form>
-                    <a href="?page=Panier" class="boutton">Précédent</a> 
+                <div>
+                    <a href="?page=Panier" class="button">Précédent</a>
+                    <a href="?page=Panier" class="button">Suivant</a>
+                </div>
+                <?php
+                    CommandeLivraisonController::Client($_POST['adresse'], $_POST['nom'], $_POST['prenom'])
+                ?>
             </div>
             
             
