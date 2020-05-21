@@ -76,6 +76,13 @@
 					$instanceController = new CommandeTacosController();
 					$instanceController->includeView();
 					break;
+                                case "Panier" : 
+
+					include_once("pages/Panier/PanierController.php");
+
+					$instanceController = new PanierController();
+					$instanceController->includeView();
+					break;
 				default: 
 					break;
 			}

@@ -4,6 +4,7 @@
     include_once("DTO/Tacos_DTO.php");
     include_once("DTO/Taille_DTO.php");
     include_once("DTO/Viande_DTO.php");
+    include_once("DTO/Sauce_DTO.php");
 
     class Tacos_DAO
     {
@@ -115,7 +116,7 @@
             
             $connex = DatabaseLinker::getConnexion();
             
-            $state = $connex->prepare("SELECT * FROM Viande ORDER BY idSauce");
+            $state = $connex->prepare("SELECT * FROM Sauce ORDER BY idSauce");
             $state->execute();
             
             $resultats = $state->fetchAll();
@@ -124,7 +125,7 @@
             {
                 $sauce = new Sauce_DTO();
                 $sauce->setIdSauce($result["idSauce"]);
-                $sauce->setNomViande($result["nomSauce"]);
+                $sauce->setNomSauce($result["nomSauce"]);
                 $sauceArray[] = $sauce;
             }
             return $sauceArray;

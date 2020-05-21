@@ -9,14 +9,14 @@
             return $this->idSauce;
         }
 
-        function setIdSauce($idSauce): void {
+        function setIdSauce($idSauce){
             $this->idSauce = $idSauce;
         }
         function getNomSauce() {
             return $this->nomSauce;
         }
 
-        function setNomSauce($nomSauce): void {
+        function setNomSauce($nomSauce){
             $this->nomSauce = $nomSauce;
         }
 
