@@ -83,18 +83,6 @@ CREATE TABLE Sauce
     PRIMARY KEY(idSauce)
 );
 
-CREATE TABLE Tacos_Legume
-(
-    idLegume INT(11),
-    idTacos INT(11),
-    PRIMARY KEY(idLegume, idTacos)
-);
-CREATE TABLE Legume
-(
-    idLegume INT(11),
-    nomLegume VARCHAR(64),
-    PRIMARY KEY(idLegume)
-);
 
 ALTER TABLE Commande
 ADD CONSTRAINT Commande_idClient
@@ -152,16 +140,6 @@ FOREIGN KEY (idSauce)
 REFERENCES Sauce(idSauce);
 
 
-ALTER TABLE Tacos_Legume 
-ADD CONSTRAINT Tacos_Legume_idLegume
-FOREIGN KEY (idLegume)
-REFERENCES Legume(idLegume);
-
-ALTER TABLE Tacos_Legume 
-ADD CONSTRAINT Tacos_Legume_idTacos
-FOREIGN KEY (idTacos)
-REFERENCES Tacos(idTacos);
-
 INSERT INTO Client(idClient, nom, prenom, adresse) VALUES
 (1, "Pernot", "Jean-Pierre", "6 Rue de la Republique"),
 (2, "Zinedine", "Zidane", "17 Rue la Mote"),
@@ -203,8 +181,3 @@ INSERT INTO Sauce(idSauce, nomSauce) VALUES
 (3, "Samourai"),
 (4, "Algériène"),
 (5, "Barbecue");
-
-INSERT INTO Legume(idLegume, nomLegume) VALUES
-(1, "Salade"),
-(2, "Tomate"),
-(3, "Onion");

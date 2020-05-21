@@ -1,4 +1,5 @@
 <?php
+include_once("DAO/Boisson_DAO.php");
 class CommandeBoissonController
 {
     
@@ -10,6 +11,11 @@ class CommandeBoissonController
     {
         header('Location: index.php?page='.$page);
         exit();
+    }
+    
+    public static function getAllBoisson()
+    {
+        return Boisson_DAO::allBoisson();
     }
     
 }

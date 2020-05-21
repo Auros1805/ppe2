@@ -12,5 +12,10 @@ class PanierController
         exit();
     }
     
+    public static function getTaille($idTaille)
+    {
+        
+    }
+    
 }
 ?>

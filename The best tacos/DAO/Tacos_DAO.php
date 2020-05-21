@@ -1,7 +1,9 @@
 <?php
 
-    include_once("DatabaseLinker.php");
+    include_once("tools/DatabaseLinker.php");
     include_once("DTO/Tacos_DTO.php");
+    include_once("DTO/Taille_DTO.php");
+    include_once("DTO/Viande_DTO.php");
 
     class Tacos_DAO
     {
@@ -62,6 +64,71 @@
             $state->bindParam(1, $nomTacos);
             $state->bindParam(2, $idTaille);
             $state->execute();
-        } 
+        }
+        
+        public static function allTaille()
+        {
+            $tailleArray = array();
+            
+            $connex = DatabaseLinker::getConnexion();
+            
+            $state = $connex->prepare("SELECT * FROM Taille ORDER BY idTaille");
+            $state->execute();
+            
+            $resultats = $state->fetchAll();
+
+            foreach ($resultats as $result)
+            {
+                $taille = new Taille_DTO();
+                $taille->setIdTaille($result["idTaille"]);
+                $taille->setNomTaille($result["nomTaille"]);
+                $taille->setPrixTaille($result["prixTaille"]);
+                $tailleArray[] = $taille;
+            }
+            return $tailleArray;
+        }
+        
+        public static function allViande()
+        {
+            $viandeArray = array();
+            
+            $connex = DatabaseLinker::getConnexion();
+            
+            $state = $connex->prepare("SELECT * FROM Viande ORDER BY idViande");
+            $state->execute();
+            
+            $resultats = $state->fetchAll();
+
+            foreach ($resultats as $result)
+            {
+                $viande = new Viande_DTO();
+                $viande->setIdViande($result["idViande"]);
+                $viande->setNomViande($result["nomViande"]);
+                $viandeArray[] = $viande;
+            }
+            return $viandeArray;
+        }
+        
+        public static function allSauce()
+        {
+            $sauceArray = array();
+            
+            $connex = DatabaseLinker::getConnexion();
+            
+            $state = $connex->prepare("SELECT * FROM Viande ORDER BY idSauce");
+            $state->execute();
+            
+            $resultats = $state->fetchAll();
+
+            foreach ($resultats as $result)
+            {
+                $sauce = new Sauce_DTO();
+                $sauce->setIdSauce($result["idSauce"]);
+                $sauce->setNomViande($result["nomSauce"]);
+                $sauceArray[] = $sauce;
+            }
+            return $sauceArray;
+        }
+        
     }
 ?>

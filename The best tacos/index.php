@@ -31,7 +31,14 @@
 		<title>The best Tacos</title>		
 	</head>
 	<?php
-
+                    include_once("DAO/Tacos_DAO.php");
+                    
+                    $_SESSION['listTaille'] = Tacos_DAO::allTaille();
+                    $listTacos = array();
+                    $listViande = array();
+                    $listSauce = array();
+                    $_SESSION['listTacos'] = $listTacos;
+                    $listBoisson = array();
 			switch($page)
 			{
 				case "Accueil" : 
